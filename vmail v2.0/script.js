@@ -150,10 +150,6 @@ $('#message-btn').on('click', function(e) {
 $(#body-btn').on('click', function(e) {
   recognition.stop();
 
-  if(!noteContent.length) {
-    instructions.text('Please enter valid email id .');
-  }
-  else {
     // Save note to localStorage.
     // The key is the dateTime with seconds, the value is the content of the note.
     saveNote(new Date().toLocaleString(), noteContent);
@@ -161,7 +157,7 @@ $(#body-btn').on('click', function(e) {
     // Reset variables and update UI.
     
     instructions.text('Email saved successfully.');
-    location.replace("Thankyou.html")
+    location.replace("thankyou.html")
   }
       
 })
