@@ -147,6 +147,25 @@ $('#message-btn').on('click', function(e) {
       
 })
 
+$('#body-btn').on('click', function(e) {
+  recognition.stop();
+
+  if(!noteContent.length) {
+    instructions.text('');
+  }
+  else {
+    // Save note to localStorage.
+    // The key is the dateTime with seconds, the value is the content of the note.
+    saveNote(new Date().toLocaleString(), noteContent);
+
+    // Reset variables and update UI.
+    
+    instructions.text('Body saved successfully.');
+    location.replace("Replay.html")
+  }
+      
+})
+
 
 notesList.on('click', function(e) {
   e.preventDefault();
