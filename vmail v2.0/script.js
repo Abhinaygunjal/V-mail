@@ -103,7 +103,7 @@ $('#email-id-btn').on('click', function(e) {
 
     // Reset variables and update UI.
     
-    instructions.text('Email saved successfully.');
+    instructions.text('Email id noted successfully.');
     location.replace("subject.html")
   }
       
@@ -141,8 +141,27 @@ $('#message-btn').on('click', function(e) {
 
     // Reset variables and update UI.
     
-    instructions.text('Subject saved successfully.');
-    location.replace("thankyou.html")
+    instructions.text('Message saved successfully.');
+    location.replace("Replay.html")
+  }
+      
+})
+
+$(#body-btn').on('click', function(e) {
+  recognition.stop();
+
+  if(!noteContent.length) {
+    instructions.text('Please enter valid email id .');
+  }
+  else {
+    // Save note to localStorage.
+    // The key is the dateTime with seconds, the value is the content of the note.
+    saveNote(new Date().toLocaleString(), noteContent);
+
+    // Reset variables and update UI.
+    
+    instructions.text('Email saved successfully.');
+    location.replace("Thankyou.html")
   }
       
 })
